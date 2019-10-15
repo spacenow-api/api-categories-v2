@@ -1,0 +1,30 @@
+get-category-attributes:
+  handler: src/functions/category-attribute/get-category-attributes.main
+  events:
+    - http:
+        path: category-attributes/{id}
+        method: get
+get-category-attribute:
+  handler: src/functions/category-attribute/get-category-attribute.main
+  events:
+    - http:
+        path: category-attribute/{id}
+        method: get
+put-category-attribute:
+  handler: src/functions/category-attribute/put-category-attribute.main
+  events:
+    - http:
+        path: category-attribute/{id}
+        method: put
+post-category-attribute:
+  handler: src/functions/category-attribute/post-category-attribute.main
+  events:
+    - http:
+        path: category-attribute
+        method: post
+delete-category-attribute:
+  handler: src/functions/category-attribute/delete-category-attribute.main
+  events:
+    - http:
+        path: category-attribute
+        method: delete

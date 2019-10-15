@@ -1,0 +1,35 @@
+service: spacenow-categories
+
+dotenv:
+  path: ./.env
+  basePath: ./
+  include:
+    - POOL_ID
+    - ACCOUNT_ID
+    - DATABASE_SCHEMA
+    - DATABASE_HOST
+    - DATABASE_USERNAME
+    - DATABASE_PASSWORD
+
+custom:
+  poolId: ${env:POOL_ID}
+  accountId: ${env:ACCOUNT_ID}
+  prune:
+    automatic: true
+    number: 3
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+functions:
+  - ${file(src/functions/category.yml)}
+  - ${file(src/functions/category-attribute.yml)}
+
+plugins:
+  - serverless-offline
+  - serverless-prune-plugin
+  - serverless-dotenv-plugin
+
+resources:
+  - ${file(resources/api-gateway-errors.yml)}
