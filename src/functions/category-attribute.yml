@@ -2,7 +2,7 @@ get-category-attributes:
   handler: src/functions/category-attribute/get-category-attributes.main
   events:
     - http:
-        path: category-attributes/{id}
+        path: category-attributes/{id}/{typeId}
         method: get
 get-category-attribute:
   handler: src/functions/category-attribute/get-category-attribute.main

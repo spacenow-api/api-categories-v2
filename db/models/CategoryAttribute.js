@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       field: 'attribute_id',
       defaultValue: DataTypes.UUIDV4,
       references: {
-        model: 'EAVAttribute',
+        model: 'Attribute',
         key: 'id'
       }
     },
@@ -49,6 +49,6 @@ module.exports = (sequelize, DataTypes) => {
       }
     ]
   });
-
+  
   return CategoryAttribute;
 };

@@ -58,13 +58,6 @@ module.exports = (sequelize, DataTypes) => {
       as: 'children',
       foreignKey: 'parent_id'
     });
-    Category.associate = (models) => {
-      Category.belongsToMany(models.Listing, {
-        through: 'ListingCategory',
-        as: 'categories',
-        foreignKey: 'categoryId'
-      });
-    };
   };
 
   Category.beforeCreate((instance) => {
